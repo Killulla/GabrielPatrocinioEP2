@@ -1,0 +1,313 @@
+import random
+import turtle
+import time
+
+
+#-------------------------------------------------------------------- Desenha a cabeça
+def cabeça():
+        tartaruga.hideturtle()
+        tartaruga.setpos(-350,375)
+        tartaruga.circle(30)
+        tartaruga.lt(90)
+        tartaruga.penup()
+        tartaruga3.clear()
+        tartaruga3.color("pink")
+        tartaruga3.write(','.join(lista2),font=("Arial",17,"bold"))
+
+#-------------------------------------------------------------------- Desenha a cabeça
+def corpo1():
+        tartaruga3.clear()
+        tartaruga.hideturtle()
+        tartaruga.penup()
+        tartaruga.setpos(-350,315)
+        tartaruga.lt(90)
+        tartaruga.pendown()
+        tartaruga.fd(30)
+        tartaruga3.color("pink")
+        tartaruga3.write(','.join(lista2),font=("Arial",17,"bold"))
+
+#-------------------------------------------------------------------- Desenha o braço esquerdo
+def braço1():
+        tartaruga3.clear()
+        tartaruga.hideturtle()
+        tartaruga.penup()
+        tartaruga.setpos(-350,285)
+        tartaruga.pendown()
+        tartaruga.rt(15)
+        tartaruga.fd(30)
+        tartaruga.penup()
+        tartaruga3.color("pink")
+        tartaruga3.write(','.join(lista2),font=("Arial",17,"bold"))
+
+#-------------------------------------------------------------------- Desenha o braço direito
+def braço2():
+        tartaruga3.clear()
+        tartaruga.hideturtle()
+        tartaruga.penup()
+        tartaruga.setpos(-350,285)
+        tartaruga.pendown()
+        tartaruga.lt(15)
+        tartaruga.bk(30)
+        tartaruga.penup()
+        tartaruga3.color("pink")
+        tartaruga3.write(','.join(lista2),font=("Arial",17,"bold"))
+
+#-------------------------------------------------------------------- Desenha a parte debaixo do corpo
+def corpo2():
+        tartaruga3.clear()
+        tartaruga.hideturtle()
+        tartaruga.penup()
+        tartaruga.setpos(-350,285)
+        tartaruga.lt(90)
+        tartaruga.pendown()
+        tartaruga.fd(30)
+        tartaruga.rt(45)
+        tartaruga3.color("pink")
+        tartaruga3.write(','.join(lista2),font=("Arial",17,"bold"))
+
+#-------------------------------------------------------------------- Desenha a perna direita
+def perna1():
+        tartaruga3.clear()
+        tartaruga.hideturtle()
+        tartaruga.penup()
+        tartaruga.setpos(-350,255)
+        tartaruga.pendown()
+        tartaruga.fd(30)
+        tartaruga.rt(180)
+        tartaruga.fd(30)
+        tartaruga.rt(90)
+        tartaruga3.color("pink")
+        tartaruga3.write(','.join(lista2),font=("Arial",17,"bold"))
+
+#-------------------------------------------------------------------- Desenha a perna esquerda
+def perna2():
+        tartaruga3.clear()
+        tartaruga.hideturtle()
+        tartaruga.penup()
+        tartaruga.setpos(-350,255)
+        tartaruga.lt(180)
+        tartaruga.pendown()
+        tartaruga.fd(30)
+        tartaruga.rt(180)
+        tartaruga3.color("pink")
+        tartaruga3.write(','.join(lista2),font=("Arial",17,"bold"))
+
+#-------------------------------------------------------------------- Desenha a primeira parte da corda
+def corda1():
+        tartaruga3.clear()
+        tartaruga.hideturtle()
+        tartaruga.penup()
+        tartaruga.color("red")
+        tartaruga.setpos(-350,315)
+        tartaruga.pendown()
+        tartaruga.rt(180)
+        tartaruga.fd(30)
+        tartaruga3.color("pink")
+        tartaruga3.write(','.join(lista2),font=("Arial",17,"bold"))
+
+#-------------------------------------------------------------------- Desenha a segunda parte da corda
+def corda2():
+        tartaruga3.clear()
+        tartaruga.hideturtle()
+        tartaruga.penup()
+        tartaruga.color("red")
+        tartaruga.setpos(-350,315)
+        tartaruga.pendown()
+        tartaruga.fd(30)
+        tartaruga3.clear()
+        tartaruga3.penup()
+        tartaruga3.setpos(-30,200)
+        tartaruga3.pencolor("red")
+        tartaruga3.write("Você foi enforcado, a palavra era %s" %sorteio ,font=("Arial",20,"bold"))
+        time.sleep(2)
+        tartaruga3.clear()
+        again = window.textinput("Replay", "Voce quer jogar de novo?")
+        if again.lower()=="nao" or again=="não" or again=="Não":
+            play_game==False
+            window.bye()
+        if again.lower()=="sim":
+            turtle.resetscreen()
+
+
+#-------------------------------------------------------------------- 
+play_game=True
+while play_game==True:
+    palavras=open("entrada.txt","r", encoding = "utf-8")
+    lista=[]
+    lista2=[]
+    play_game=True
+    linha="__ "
+    for i in palavras:
+        add=i.lower().strip()
+        if len(add)< 2 or "-" in add:
+            None
+        else:
+            lista.append(add)
+    play=True
+    sorteio=random.choice(lista)
+    posi=lista.index(sorteio)
+    del lista[posi]
+    erro=0
+    window = turtle.Screen()    # cria uma janela
+    window.bgcolor("lightblue")
+    window.title("Jogo da forca")
+    window.setup(width=1440,height=900,startx=-100,starty=None)
+    window.bgpic("fundo.gif")
+    tartaruga2=turtle.Turtle()
+    tartaruga2.hideturtle()
+    tartaruga2.penup()
+    tartaruga2.setpos(600,0)
+    tartaruga2.pensize(4)
+    tartaruga2.color("white")
+    tartaruga2.rt(180)
+    tartaruga2.pendown()
+    riscos=len(sorteio)
+    tartaruga4=turtle.Turtle()
+    tartaruga4.hideturtle()
+    tartaruga4.up()
+    tartaruga4.setpos(0,420)
+    tartaruga4.pendown()
+    tartaruga4.color("cyan")
+    tartaruga4.write("Seja bem-vindo ao Jogo da Forca", font=("Arial",17,"bold"))
+    tartaruga5=turtle.Turtle()
+    tartaruga5.hideturtle()
+    tartaruga5.penup()
+    tartaruga5.setpos(0,400)
+    tartaruga5.pendown()
+    tartaruga5.pencolor("lightgreen")
+    tartaruga5.write("Abaixo estão as letras já faladas", font=("Arial",14,"normal"))
+    tartaruga2.hideturtle()      
+    tartaruga2.penup()
+    tartaruga2.setpos(-200,0)
+    tartaruga2.pencolor("white")
+    tartaruga2.pensize(5)
+    tartaruga2.write((len(sorteio)*linha),font=("Arial",40,"bold"))
+    while erro<9 and play==True :
+        tartaruga3=turtle.Turtle()
+        tartaruga3.hideturtle()
+        tartaruga3.penup()
+        tartaruga3.setpos(-100,370)
+        tartaruga3.rt(90)
+        tartaruga   = turtle.Turtle()
+        tartaruga.hideturtle()
+        tartaruga.speed(5)
+        tartaruga.penup()
+        tartaruga.setpos(-450,200)
+        tartaruga.pendown()
+        tartaruga.color("orange")
+        tartaruga.pensize(4)
+        tartaruga.rt(270)
+        tartaruga.fd(200)
+        tartaruga.rt(90)
+        tartaruga.fd(100)
+        tartaruga.rt(90)
+        tartaruga.fd(25)
+        tartaruga.rt(90)
+        tartaruga9=turtle.Turtle()
+        tartaruga9.penup()
+        tartaruga9.setpos(-100,-100)
+        tartaruga9.hideturtle()
+        tartaruga9.pendown()
+        tartaruga9.color("cyan")
+        tartaruga9.write("Você já chutou %d letras" %(len(lista2)),font=("Arial",16,"normal"))
+        escolha = window.textinput("Escolha", "Escolha sabiamente uma letra(sair para sair)")
+        while escolha.isalpha()==False:
+            tartaruga6=turtle.Turtle()
+            tartaruga6.hideturtle()
+            tartaruga6.penup()
+            tartaruga6.setpos(0,220)
+            tartaruga6.pendown()
+            tartaruga6.color("red")
+            tartaruga6.write("Por favor, escolha uma letra do alfabeto",font=("Arial",20,"bold"))
+            time.sleep(3)
+            escolha = window.textinput("Escolha", "Escolha sabiamente uma letra")
+            tartaruga6.clear()
+        if escolha.lower() =="sair":
+            window.exitonclick()
+        while len(escolha) > 1 and escolha != "sair":
+            tartaruga6=turtle.Turtle()
+            tartaruga6.hideturtle()
+            tartaruga6.penup()
+            tartaruga6.setpos(0,300)
+            tartaruga6.pendown()
+            tartaruga6.color("red")
+            tartaruga6.write("Por favor, uma letra de cada vez",font=("Arial",20,"bold"))
+            time.sleep(3)
+            escolha = window.textinput("Escolha", "Escolha sabiamente uma letra")
+            tartaruga6.clear()
+            if escolha.isalpha()==False:
+                tartaruga6.write("Por favor, escolha uma letra do alfabeto",font=("Arial",20,"bold"))
+                time.sleep(3)
+                escolha = window.textinput("Escolha", "Escolha sabiamente uma letra")
+                tartaruga6.clear()            
+        while escolha.lower() in lista2:        
+            tartaruga6=turtle.Turtle()
+            tartaruga6.hideturtle()
+            tartaruga6.penup()
+            tartaruga6.setpos(-100,250)
+            tartaruga6.pendown()
+            tartaruga6.color("red")
+            tartaruga6.write("Por favor, escolha outra letra que ainda não foi escolhida",font=("Arial",20,"bold"))
+            time.sleep(3)
+            escolha = window.textinput("Escolha", "Escolha sabiamente uma letra")
+            tartaruga6.clear()
+            while len(escolha) > 1 and escolha.lower() != "sair":
+                tartaruga6=turtle.Turtle()
+                tartaruga6.hideturtle()
+                tartaruga6.penup()
+                tartaruga6.setpos(0,300)
+                tartaruga6.pendown()
+                tartaruga6.color("red")
+                tartaruga6.write("Por favor, uma letra de cada vez",font=("Arial",20,"bold"))
+                time.sleep(3)
+                escolha = window.textinput("Escolha", "Escolha sabiamente uma letra")
+                tartaruga6.clear()
+            while escolha.isalpha()==False:
+                tartaruga6.write("Por favor, escolha uma letra do alfabeto",font=("Arial",20,"bold"))
+                time.sleep(3)
+                escolha = window.textinput("Escolha", "Escolha sabiamente uma letra")
+                tartaruga6.clear()  
+        if escolha.lower() in sorteio:
+            lista2.append(escolha.lower())
+            listax = []
+            for i in range(len(sorteio)):
+                if sorteio[i] == escolha.lower():
+                    listax.append(i)
+            for pos in listax:
+                tartaruga2=turtle.Turtle()
+                tartaruga2.hideturtle()
+                tartaruga2.penup()
+                tartaruga2.setpos(-180+70*(pos), 10)
+                tartaruga2.pendown()
+                tartaruga2.color("white")
+                tartaruga2.write(escolha.lower(),font=("Arial",24,"bold"))
+                tartaruga3.clear()
+                tartaruga3.color("pink")
+                tartaruga3.write(','.join(lista2),font=("Arial",17,"bold"))
+                tartaruga9.clear()
+        else:
+            lista2.append(escolha.lower())
+            erro=erro + 1
+            tartaruga9.clear()
+        if erro==1:  
+            cabeça()
+        if erro==2:
+            corpo1()
+        if erro==3:
+            braço1()
+        if erro==4:
+            braço2()
+        if erro==5:
+            corpo2()
+        if erro==6:
+            perna1()
+        if erro==7:
+            perna2()
+        if erro==8:
+            corda1()
+        if erro==9:
+            corda2()
+    window.exitonclick()
+        
+
+
