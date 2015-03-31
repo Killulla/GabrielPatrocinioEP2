@@ -168,7 +168,7 @@ def escrever():
 
 play_game=True
 while play_game==True:
-    palavras=open("z.txt","r", encoding = "utf-8")
+    palavras=open("entrada.txt","r", encoding = "utf-8")
     lista=[]
     lista2=[]
     play_game=True
