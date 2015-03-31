@@ -1,0 +1,129 @@
+import random
+import unicodedata
+import turtle
+palavras=open("entrada.txt","r",encoding="utf-8")
+lista=[]
+lista2=[]
+for i in palavras:
+    add=i.lower().strip()
+    add= unicodedata.normalize('NFKD', add).encode('ASCII','ignore')
+    if len(add)< 2:
+        None
+    else:
+        lista.append(add)
+sorteio=random.choice(lista)
+erro=0
+window = turtle.Screen()    # cria uma janela
+window.bgcolor("lightblue")
+window.title("Jogo da forca")
+tartaruga2=turtle.Turtle()
+tartaruga2.penup()
+tartaruga2.setpos(450,0)
+tartaruga2.rt(180)
+tartaruga2.pendown()
+riscos=len(sorteio)
+for i in range (riscos):
+      tartaruga2.fd(70)
+      tartaruga2.penup()
+      tartaruga2.fd(15)
+      tartaruga2.pendown()
+while erro<6:
+    tartaruga3=turtle.Turtle()
+    tartaruga3.penup()
+    tartaruga3.setpos(-100,400)
+    tartaruga3.rt(90)
+    tartaruga   = turtle.Turtle()  # Cria um objeto "desenhador"
+    tartaruga.speed(5)  # define a velocidade
+    tartaruga.penup()       # Remova e veja o que acontece
+    tartaruga.setpos(-450,200)
+    tartaruga.pendown()
+    tartaruga.color("orange")
+    tartaruga.rt(270)
+    tartaruga.fd(200)
+    tartaruga.rt(90)
+    tartaruga.fd(100)
+    tartaruga.rt(90)
+    tartaruga.fd(25)
+    tartaruga.rt(90)
+    escolha = window.textinput("Escolha", "Escolha sabiamente uma letra")
+    if len(escolha) > 1:
+        tartaruga3.write("Por favor, uma letra de cada vez")
+    if len(escolha[0]) == len(sorteio):
+         None
+    else:
+        lista2.append(escolha)
+        erro=erro + 1
+    if erro==1:  
+        tartaruga.setpos(-350,375)
+        tartaruga.circle(30)
+        tartaruga.lt(90)
+        tartaruga.penup()
+        tartaruga.fd(60)
+        tartaruga.pendown()
+        tartaruga3.clear()
+        tartaruga3.write(lista2,font=("Arial",14,"normal"))
+    if erro==2:
+        tartaruga.setpos(-350,315)
+        tartaruga.penup()
+        tartaruga.fd(60)
+        tartaruga.pendown()
+        tartaruga.lt(90)
+        tartaruga.fd(30)
+        tartaruga.rt(135)
+        tartaruga3.clear()
+        tartaruga3.write(lista2,font=("Arial",14,"normal"))
+    if erro==3:
+        tartaruga.setpos(-350,285)
+        tartaruga.fd(30)
+        tartaruga.lt(180)
+        tartaruga.fd(30)
+        tartaruga.lt(90)
+        tartaruga3.clear()
+        tartaruga3.write(lista2,font=("Arial",14,"normal"))
+    if erro==4:
+        tartaruga.setpos(350,285)
+        tartaruga.fd(30)
+        tartaruga.rt(180)
+        tartaruga.fd(30)
+        tartaruga.lt(45)
+        tartaruga3.clear()
+        tartaruga3.pensize(3)
+        tartaruga3.write(lista2,font=("Arial",14,"normal"))
+    if erro==5:
+        tartaruga.fd(30)
+        tartaruga.rt(45)
+        tartaruga3.clear()
+        tartaruga3.write(lista2,font=("Arial",14,"normal"))
+    if erro==6:
+        tartaruga.fd(30)
+        tartaruga.rt(180)
+        tartaruga.fd(30)
+        tartaruga.rt(90)
+        tartaruga3.clear()
+        tartaruga3.write(lista2)
+    if erro==7:
+        tartaruga.fd(30)
+        tartaruga.rt(180)
+        tartaruga.fd(30)
+        tartaruga.rt(45)
+        tartaruga.fd(60)
+        tartaruga.rt(90)
+        tartaruga3.clear()
+        tartaruga3.write(lista2)
+    if erro==8:
+        tartaruga.fd(30)
+        tartaruga.rt(180)
+        tartaruga3.clear()
+        tartaruga3.write(lista2)
+    if erro==9:
+        tartaruga.fd(60)
+        tartaruga3.clear()
+        tartaruga3.clear()
+        tartaruga3.write(lista2)
+        tartaruga3.write("Você foi enforcado")
+
+        
+window.exitonclick()
+    
+
+
