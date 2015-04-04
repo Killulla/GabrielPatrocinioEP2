@@ -168,7 +168,7 @@ def escrever():
 
 play_game=True
 while play_game==True:
-    palavras=open("entrada.txt","r", encoding = "utf-8")
+    palavras=open("z.txt","r", encoding = "utf-8")
     lista=[]
     lista2=[]
     play_game=True
@@ -184,6 +184,14 @@ while play_game==True:
     posi=lista.index(sorteio)
     del lista[posi]
     erro=0
+    listax = []
+    certas=1
+    window = turtle.Screen()    # cria uma janela
+    window.bgcolor("lightblue")
+    window.title("Jogo da forca")
+    window.setup(width=1440,height=900,startx=-100,starty=None)
+    window.bgpic("fundo.gif")
+    tartaruga2=turtle.Turtle()
     certas=1
     window = turtle.Screen()    # cria uma janela
     window.bgcolor("lightblue")
@@ -310,7 +318,6 @@ while play_game==True:
             listaz.append(i)
             lista3=[]
             lista2.append(escolha.lower())
-            listax = []
             lista3.append(escolha.lower())
             for i in range(len(sorteio)):
                 if sorteio[i] == escolha.lower():
