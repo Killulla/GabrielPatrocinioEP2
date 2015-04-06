@@ -168,7 +168,7 @@ def escrever():
 
 play_game=True
 while play_game==True:
-    palavras=open("z.txt","r", encoding = "utf-8")
+    palavras=open("entrada.txt","r", encoding = "utf-8")
     lista=[]
     lista2=[]
     play_game=True
@@ -319,6 +319,7 @@ while play_game==True:
             lista3=[]
             lista2.append(escolha.lower())
             lista3.append(escolha.lower())
+            listax=[]
             for i in range(len(sorteio)):
                 if sorteio[i] == escolha.lower():
                     listax.append(i)
@@ -346,7 +347,7 @@ while play_game==True:
             corda1()
         if erro==9:
             corda2()
-        if len(listax)==len(sorteio):
+        if len(listaz)==len(sorteio):
             media=len(listaz)/certas
             tartaruga3.clear()
             tartaruga3.penup()
@@ -354,14 +355,14 @@ while play_game==True:
             tartaruga3.pencolor("red")
             tartaruga3.write("Parabéns,você acertou a palavra >> %s" %sorteio ,font=("Arial",20,"bold"))
             time.sleep(2)
-            tartaruga3.clear()
-            again = window.textinput("Replay", "Voce quer jogar de novo?")
             tartarugar=turtle.Turtle()
             tartarugar.penup()
             tartarugar.color("cyan")
             tartarugar.setpos(-100,-150)
             tartarugar.write("Você já acertou %d palavras e tem uma media de %2.1f chutes por palavra" % (certas,media),font=("Arial",18,"normal"))
             time.sleep(2)
+            tartaruga3.clear()
+            again = window.textinput("Replay", "Voce quer jogar de novo?")
             certas+=certas  
             del lista2[:]
             erro=0
